@@ -6,16 +6,15 @@ const app = express()
 app.use(express.json())
 app.use(cors())
 
+
 morgan.token('person', (request, response) => {
   if (request.method === "POST") 
   return JSON.stringify(request.body)
 })
 
 
-
 app.use(morgan('tiny'))
 app.use(morgan(':person'))
-
 
 
 let persons =  [
